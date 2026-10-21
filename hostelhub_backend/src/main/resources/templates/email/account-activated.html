@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head><meta charset="UTF-8"><title>Account activated</title></head>
+<body style="font-family:Arial,sans-serif;background:#f4f6fb;padding:24px;color:#172033">
+<div style="max-width:560px;margin:auto;background:white;padding:28px;border-radius:12px">
+    <h1 style="color:#173f76">HostelHub</h1>
+    <h2>Your account is activated</h2>
+    <p>Hello <strong th:text="${adminName}">Admin</strong>,</p>
+    <p>Your HostelHub account is active. You can now sign in using your registered email and password.</p>
+    <p>
+        <a th:href="${loginUrl}"
+           style="background:#2563eb;color:white;padding:12px 20px;
+                text-decoration:none;border-radius:8px">Sign in</a>
+    </p>
+</div>
+</body>
+</html>

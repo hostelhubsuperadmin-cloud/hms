@@ -1,0 +1,96 @@
+
+spring:
+  application:
+    name: hostelhub
+
+  datasource:
+    url: ${DB_URL:jdbc:postgresql://localhost:5432/hostelhub_db}
+    username: ${DB_USERNAME}
+    password: ${DB_PASSWORD}
+    driver-class-name: org.postgresql.Driver
+
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+
+  # Email configuration
+  mail:
+    host: ${MAIL_HOST}
+    port: ${MAIL_PORT:587}
+    username: ${MAIL_USERNAME}
+    password: ${MAIL_PASSWORD}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        transport:
+          protocol: smtp
+
+  # HTML email templates
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: HTML
+
+server:
+  port: 9999
+  servlet:
+    session:
+      cookie:
+        http-only: true
+        secure: ${COOKIE_SECURE:false}
+        same-site: lax
+
+app:
+  security:
+    jwt:
+      # Base64-encoded random secret containing at least 32 bytes
+      secret: ${JWT_SECRET}
+      access-token-minutes: 15
+
+  cors:
+    allowed-origin: ${FRONTEND_ORIGIN:http://localhost:3000}
+
+  frontend-url: ${FRONTEND_URL:http://localhost:3000}
+
+  activation-token-expiry-hours: 24
+  password-reset-otp-expiry-minutes: 5
+  password-reset-otp-max-attempts: 5
+
+  # Set this environment variable to a strong random secret.
+  otp-pepper: ${OTP_PEPPER}
+
+logging:
+  level:
+    root: INFO
+    org.springframework.security: DEBUG
+    org.springframework.web: INFO
+    com.hostelhub: DEBUG
+
+
+razorpay:
+  key-id: ${RAZORPAY_KEY_ID:}
+  key-secret: ${RAZORPAY_KEY_SECRET:}
+  webhook-secret: ${RAZORPAY_WEBHOOK_SECRET:}
+
+payment:
+  proof-storage:
+    provider: s3
+    bucket: ${PAYMENT_PROOF_S3_BUCKET}
+    region: ${AWS_REGION:ap-southeast-2}
+
+
+  servlet:
+    multipart:
+      max-file-size: 10MB
+      max-request-size: 10MB

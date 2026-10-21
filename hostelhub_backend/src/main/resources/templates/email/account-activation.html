@@ -1,0 +1,70 @@
+
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Activate your HostelHub account</title>
+</head>
+<body style="margin:0;padding:0;background:#f3f5f9;font-family:Arial,sans-serif;color:#172033;">
+<table role="presentation" width="100%" cellspacing="0" cellpadding="0"
+       style="background:#f3f5f9;padding:32px 12px;">
+    <tr>
+        <td align="center">
+            <table role="presentation" width="600" cellspacing="0" cellpadding="0"
+                   style="max-width:600px;width:100%;background:#ffffff;border-radius:12px;overflow:hidden;">
+                <tr>
+                    <td style="background:#173b70;color:#ffffff;padding:28px 32px;">
+                        <h1 style="margin:0;font-size:24px;">HostelHub</h1>
+                        <p style="margin:8px 0 0;font-size:14px;">
+                            Account activation
+                        </p>
+                    </td>
+                </tr>
+                <tr>
+                    <td style="padding:32px;">
+                        <h2 style="margin-top:0;font-size:21px;">
+                            Welcome, <span th:text="${fullName}">HostelHub user</span>
+                        </h2>
+                        <p style="font-size:15px;line-height:1.7;">
+                            Your account has been created. Activate it and set
+                            your own password to access HostelHub.
+                        </p>
+                        <p style="margin:28px 0;text-align:center;">
+                            <a th:href="${activationLink}"
+                               href="http://localhost:3000/activate"
+                               style="display:inline-block;background:#1769e0;color:#ffffff;
+                                      text-decoration:none;padding:14px 24px;border-radius:8px;
+                                      font-weight:bold;">
+                                Activate account
+                            </a>
+                        </p>
+                        <p style="font-size:14px;line-height:1.7;">
+                            This link expires in
+                            <strong th:text="${expiryHours}">24</strong> hours
+                            and can only be used once.
+                        </p>
+                        <p style="font-size:13px;line-height:1.7;color:#5b6577;">
+                            If the button does not work, copy this link into
+                            your browser:
+                        </p>
+                        <p style="font-size:12px;overflow-wrap:anywhere;">
+                            <a th:href="${activationLink}"
+                               th:text="${activationLink}"
+                               href="http://localhost:3000/activate">
+                                Activation link
+                            </a>
+                        </p>
+                        <hr style="border:0;border-top:1px solid #e6e9ef;margin:28px 0;">
+                        <p style="font-size:12px;line-height:1.6;color:#6b7280;">
+                            If you were not expecting this account, you can
+                            ignore this email.
+                        </p>
+                    </td>
+                </tr>
+            </table>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

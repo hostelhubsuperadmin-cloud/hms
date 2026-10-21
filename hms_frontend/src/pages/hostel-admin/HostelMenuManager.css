@@ -1,0 +1,338 @@
+.hmm {
+  color: #1f2937;
+}
+
+.hmm-header,
+.hmm-meal-heading,
+.hmm-item,
+.hmm-item-actions,
+.hmm-modal > header,
+.hmm-modal footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.hmm-header {
+  margin-bottom: 22px;
+  align-items: flex-start;
+}
+
+.hmm-header h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 6px 0;
+  font-size: 1.45rem;
+}
+
+.hmm-header p,
+.hmm-modal header p {
+  margin: 0;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.hmm-eyebrow {
+  color: #64748b;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.hmm button {
+  cursor: pointer;
+  font: inherit;
+}
+
+.hmm button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.hmm-primary,
+.hmm-secondary,
+.hmm-add-small {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  border-radius: 9px;
+  padding: 10px 14px;
+  font-weight: 700;
+}
+
+.hmm-primary {
+  border: 1px solid #4338ca;
+  color: white;
+  background: #4338ca;
+}
+
+.hmm-secondary {
+  border: 1px solid #cbd5e1;
+  background: white;
+  color: #334155;
+}
+
+.hmm-add-small {
+  padding: 7px 10px;
+  border: 1px solid #c7d2fe;
+  color: #4338ca;
+  background: #eef2ff;
+}
+
+.hmm-days {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 20px;
+}
+
+.hmm-days button {
+  padding: 9px 13px;
+  border: 1px solid #dbe2ea;
+  border-radius: 9px;
+  background: white;
+  color: #475569;
+}
+
+.hmm-days button.selected {
+  border-color: #4338ca;
+  background: #eef2ff;
+  color: #3730a3;
+  font-weight: 800;
+}
+
+.hmm-meals {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.hmm-meal-card {
+  min-width: 0;
+  padding: 16px;
+  border: 1px solid #e2e8f0;
+  border-radius: 14px;
+  background: #fff;
+}
+
+.hmm-meal-heading {
+  padding-bottom: 13px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.hmm-meal-heading h3 {
+  margin: 0 0 4px;
+}
+
+.hmm-meal-heading span {
+  color: #64748b;
+  font-size: 0.8rem;
+}
+
+.hmm-empty,
+.hmm-empty-meal {
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.hmm-empty-meal {
+  padding: 12px 0 0;
+  font-size: 0.9rem;
+}
+
+.hmm-item-list {
+  display: grid;
+  gap: 12px;
+  padding-top: 12px;
+}
+
+.hmm-item {
+  align-items: flex-start;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #edf0f4;
+}
+
+.hmm-item:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.hmm-item-main {
+  min-width: 0;
+  overflow-wrap: anywhere;
+}
+
+.hmm-item-main > strong {
+  display: block;
+}
+
+.hmm-item-main p {
+  margin: 5px 0;
+  color: #64748b;
+  font-size: 0.88rem;
+}
+
+.hmm-status {
+  display: inline-block;
+  margin-top: 5px;
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.hmm-status.available {
+  color: #15803d;
+}
+
+.hmm-status.unavailable {
+  color: #b45309;
+}
+
+.hmm-item-actions {
+  flex-shrink: 0;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+}
+
+.hmm-item-actions button,
+.hmm-modal > header button,
+.hmm-alert button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 7px;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  color: #475569;
+  background: white;
+}
+
+.hmm-item-actions button:last-child {
+  color: #b91c1c;
+}
+
+.hmm-price {
+  font-size: 0.85rem;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+.hmm-alert {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 12px 14px;
+  border-radius: 9px;
+}
+
+.hmm-error {
+  color: #991b1b;
+  background: #fef2f2;
+}
+
+.hmm-success {
+  color: #166534;
+  background: #f0fdf4;
+}
+
+.hmm-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: grid;
+  place-items: center;
+  overflow-y: auto;
+  padding: 18px;
+  background: rgb(15 23 42 / 55%);
+}
+
+.hmm-modal {
+  width: min(100%, 540px);
+  max-height: calc(100vh - 36px);
+  overflow-y: auto;
+  padding: 22px;
+  border-radius: 16px;
+  background: white;
+  box-shadow: 0 24px 70px rgb(15 23 42 / 25%);
+}
+
+.hmm-modal > header {
+  margin-bottom: 20px;
+}
+
+.hmm-modal h3 {
+  margin: 0 0 6px;
+}
+
+.hmm-modal form {
+  display: grid;
+  gap: 15px;
+}
+
+.hmm-modal label {
+  display: grid;
+  gap: 7px;
+  font-size: 0.9rem;
+  font-weight: 700;
+}
+
+.hmm-modal input:not([type="checkbox"]),
+.hmm-modal select,
+.hmm-modal textarea {
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px 11px;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  color: #1f2937;
+  background: white;
+  font: inherit;
+}
+
+.hmm-modal input:focus,
+.hmm-modal select:focus,
+.hmm-modal textarea:focus {
+  outline: 2px solid #c7d2fe;
+  border-color: #6366f1;
+}
+
+.hmm-modal .hmm-checkbox {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+
+.hmm-modal footer {
+  justify-content: flex-end;
+  margin-top: 6px;
+}
+
+.hmm-form-error {
+  color: #b91c1c;
+  margin: 0;
+}
+
+@media (max-width: 1000px) {
+  .hmm-meals {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .hmm-header {
+    flex-direction: column;
+  }
+
+  .hmm-header > button {
+    width: 100%;
+  }
+
+  .hmm-days {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

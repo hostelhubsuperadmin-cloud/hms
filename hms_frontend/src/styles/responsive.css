@@ -1,0 +1,20 @@
+@media (max-width: 900px) {
+  .page-container {
+    width: min(100% - 32px, 1440px);
+  }
+}
+
+@media (max-width: 600px) {
+  .page-container {
+    width: min(100% - 24px, 1440px);
+  }
+
+  .surface {
+    border-radius: var(--radius-md);
+  }
+
+  .primary-button,
+  .secondary-button {
+    padding-inline: 12px;
+  }
+}

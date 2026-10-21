@@ -1,0 +1,89 @@
+
+package com.hostelhub.hosteladmin.entity;
+
+import com.hostelhub.hostel.entity.Hostel;
+import com.hostelhub.user.entity.User;
+import jakarta.persistence.*;
+
+import java.time.Instant;
+
+@Entity
+@Table(
+        name = "hostel_admin_assignments",
+        uniqueConstraints = @UniqueConstraint(
+                name = "uq_hostel_admin_assignment",
+                columnNames = {"hostel_id", "user_id"}
+        ),
+        indexes = {
+                @Index(
+                        name = "idx_hostel_admin_assignments_user",
+                        columnList = "user_id"
+                ),
+                @Index(
+                        name = "idx_hostel_admin_assignments_hostel",
+                        columnList = "hostel_id"
+                )
+        }
+)
+public class HostelAdminAssignment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "hostel_id", nullable = false)
+    private Hostel hostel;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @JoinColumn(name = "assigned_by", nullable = false)
+    private User assignedBy;
+
+    @Column(name = "assigned_at", nullable = false, updatable = false)
+    private Instant assignedAt;
+
+    protected HostelAdminAssignment() {
+    }
+
+    public HostelAdminAssignment(
+            Hostel hostel,
+            User user,
+            User assignedBy
+    ) {
+        this.hostel = hostel;
+        this.user = user;
+        this.assignedBy = assignedBy;
+        this.assignedAt = Instant.now();
+    }
+
+    @PrePersist
+    void onCreate() {
+        if (assignedAt == null) {
+            assignedAt = Instant.now();
+        }
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public Hostel getHostel() {
+        return hostel;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public User getAssignedBy() {
+        return assignedBy;
+    }
+
+    public Instant getAssignedAt() {
+        return assignedAt;
+    }
+}
