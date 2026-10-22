@@ -1,0 +1,25 @@
+
+services:
+  backend:
+    image: hostelhub-backend:latest
+    container_name: hostelhub-backend
+    restart: unless-stopped
+    env_file:
+      - /opt/hostelhub/hostelhub.env
+    networks:
+      - hostelhub-net
+
+  frontend:
+    image: hostelhub-frontend:latest
+    container_name: hostelhub-frontend
+    restart: unless-stopped
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+    networks:
+      - hostelhub-net
+
+networks:
+  hostelhub-net:
+    driver: bridge

@@ -2,9 +2,7 @@
 import axios from "axios";
 
 const axiosClient = axios.create({
-  baseURL: (
-    import.meta.env.VITE_API_BASE_URL || "http://localhost:9999"
-  ).replace(/\/+$/, ""),
+  baseURL: (process.env.REACT_APP_API_BASE_URL || "").replace(/\/+$/, ""),
   withCredentials: true,
   headers: {
     Accept: "application/json",
